@@ -1,0 +1,8 @@
+sudo cp -v -r -f * /Data_master
+
+if sudo docker ps | grep master_env
+then
+echo "Running Already"
+else
+sudo docker run --name master_env -idt -p 8082:80 -v /Data_master:/usr/local/apache2/htdocs/ httpd
+fi
