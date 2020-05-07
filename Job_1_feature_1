@@ -1,0 +1,8 @@
+sudo cp -v -r -f * /Data_feature1
+
+if sudo docker ps | grep testing_env
+then
+echo "Running Already"
+else
+sudo docker run --name testing_env -idt -p 8081:80 -v /Data_feature1:/usr/local/apache2/htdocs/ httpd
+fi
